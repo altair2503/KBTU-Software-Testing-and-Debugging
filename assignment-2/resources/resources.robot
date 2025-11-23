@@ -4,8 +4,16 @@ Variables   ./locators.py
 Variables   ./testData.py
 Variables   ./browserConfig.py
 *** Keywords ***
+
+
+Open Browser for Test
+    Open Browser    ${baseUrl}  remote_url=${BROWSERSTACK_REMOTE_URL}
+    Maximize Browser Window
+
+Close Browser for Test
+    Close All Browsers
+
 Log in
-    Open Browser    ${baseUrl}      Chrome      options=${CHROME_OPTIONS}
     wait until page contains element    ${logInButton}    timeout=80      error=logInButtonNotFound
     sleep   1s
     click element   ${logInButton}
@@ -17,11 +25,11 @@ Log in
     Click Element    ${logInFormButton}
     Sleep    2s
 
-Close Browser
-    Close All Browsers
 
 Sign Up
-    Open Browser    ${baseUrl}      Chrome  options=${CHROME_OPTIONS}
+    ${timestamp}=    Evaluate    int(__import__('time').time() * 1000)
+    ${login}=        Set Variable    altair_test_${timestamp}
+    Set Suite Variable    ${login}
     wait until page contains element    ${signUpButton}    timeout=80      error=logInButtonNotFound
     sleep   1s
     click element   ${signUpButton}

@@ -1,0 +1,20 @@
+userName: altairkabdrakhma_KgnCDQ
+accessKey: 8urbCcNBt7qTMFDJqzkf
+framework: robot
+platforms:
+  - os: Windows
+    osVersion: 10
+    browserName: Chrome
+    browserVersion: 120.0
+  - os: OS X
+    osVersion: Sonoma
+    browserName: Safari
+    browserVersion: 17.3
+  - os: Windows
+    osVersion: 10
+    browserName: Firefox
+    browserVersion: latest
+parallelsPerPlatform: 1
+browserstackLocal: false
+buildName: browserstack-build-1
+projectName: AutomatedTests

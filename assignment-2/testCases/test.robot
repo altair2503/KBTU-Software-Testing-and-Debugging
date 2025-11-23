@@ -1,6 +1,7 @@
 *** Settings ***
 Resource  ../resources/resources.robot
-Suite Teardown    Close Browser
+Suite Setup    Open Browser for Test
+Suite Teardown  Close Browser for Test
 
 
 *** Variables ***
@@ -17,7 +18,6 @@ LOG_IN_TEST
 #
 
 LOG_OUT_TEST
-    Log in
     Log out
 #
 
